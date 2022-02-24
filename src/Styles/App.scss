@@ -1,0 +1,11 @@
+.header {
+  &__search {
+    background-color: aliceblue;
+  }
+  &__pfp {
+    height: 4.8rem;
+    width: 4.8rem;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}

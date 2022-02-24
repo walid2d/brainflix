@@ -1,0 +1,37 @@
+@use "./variables" as *;
+@use "./fonts" as *;
+@mixin fix($breakpoint) {
+  @if $breakpoint == tablet {
+    @media screen and (max-width: $tablet) {
+      @content;
+    }
+  }
+  @if $breakpoint == desktop {
+    @media screen and (max-width: $desktop) {
+      @content;
+    }
+  }
+}
+
+@mixin text-style($w, $c: $black) {
+  font-family: "avenir";
+  font-weight: $w;
+  color: $c;
+}
+@mixin text-size($lh, $s: 2.2rem) {
+  font-size: $s;
+  line-height: $lh;
+}
+@mixin flex(
+  $display: flex,
+  $items: center,
+  $content: center,
+  $direction: row,
+  $alignwrap: stretch
+) {
+  display: $display;
+  align-items: $items;
+  justify-content: $content;
+  flex-direction: $direction;
+  align-content: $alignwrap;
+}
