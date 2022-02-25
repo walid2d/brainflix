@@ -1,7 +1,7 @@
 import Logo from "./Assets/Logo/BrainFlix-logo.svg";
 import Pfp from "./Assets/Images/Mohan-muruge.jpg";
 
-import "./Styles/App.scss";
+import "./App.scss";
 
 function App() {
   return (
@@ -52,7 +52,6 @@ function App() {
             name="usercomment"
             autocomple="off"
             placeholder="Add a new comment"
-            spellcheck="true"
           ></input>
           <input type="submit" className="btn" value="Comment" />
         </form>
