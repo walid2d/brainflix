@@ -8,6 +8,7 @@
   &__title {
     @include text-size(3.2rem, 2.4rem);
     @include text-style(700);
+    margin-bottom: 1.6rem;
     @include fix(tablet) {
       @include text-size(4.4rem, 3.3rem);
     }
@@ -32,5 +33,44 @@
   &__views-text,
   &__like-text {
     color: $silver;
+  }
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 9rem;
+    padding: 1.6rem 0;
+    border-top: 1px solid $mercury;
+    border-bottom: 1px solid $mercury;
+    @include fix(tablet) {
+      border-top: 0px;
+      justify-content: space-between;
+      gap: 0;
+    }
+  }
+  &__box-id {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    gap: 1.6rem;
+    @include fix(tablet) {
+      flex-direction: row;
+    }
+  }
+  &__box-kpi {
+    @extend .videoinfo__box-id;
+  }
+
+  &__views,
+  &__like {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  &__wrapper-des {
+    padding: 1.6rem 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
   }
 }
