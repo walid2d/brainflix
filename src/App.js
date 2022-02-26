@@ -3,6 +3,7 @@ import Pfp from "./Assets/Images/Mohan-muruge.jpg";
 import Header from "./Components/Header";
 import Hero from "./Components/Hero";
 import Videoinfo from "./Components/VideoInfo";
+import Comment from "./Components/Comment";
 
 import "./App.scss";
 
@@ -12,6 +13,7 @@ function App() {
       <Header />
       <Hero></Hero>
       <Videoinfo />
+      <Comment />
     </div>
   );
 }
