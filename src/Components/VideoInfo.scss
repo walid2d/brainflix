@@ -1,0 +1,36 @@
+@use "../Styles/Partials/Variables" as *;
+@use "../Styles/Partials/Mixins" as *;
+
+.videoinfo {
+  display: flex;
+  flex-direction: column;
+  padding: 2.4rem 1.6rem;
+  &__title {
+    @include text-size(3.2rem, 2.4rem);
+    @include text-style(700);
+    @include fix(tablet) {
+      @include text-size(4.4rem, 3.3rem);
+    }
+  }
+  &__author,
+  &__date,
+  &__views-text,
+  &__like-text,
+  &__text,
+  &__cmnts {
+    @include text-size(1.8rem, 1.3rem);
+    @include text-style(400);
+    @include fix(tablet) {
+      @include text-size(2.2rem, 1.4rem);
+    }
+  }
+  &__author,
+  &__cmnts {
+    font-weight: 700;
+  }
+  &__date,
+  &__views-text,
+  &__like-text {
+    color: $silver;
+  }
+}

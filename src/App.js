@@ -2,6 +2,7 @@ import Logo from "./Assets/Logo/BrainFlix-logo.svg";
 import Pfp from "./Assets/Images/Mohan-muruge.jpg";
 import Header from "./Components/Header";
 import Hero from "./Components/Hero";
+import Videoinfo from "./Components/VideoInfo";
 
 import "./App.scss";
 
@@ -10,6 +11,7 @@ function App() {
     <div className="app">
       <Header />
       <Hero></Hero>
+      <Videoinfo />
     </div>
   );
 }
