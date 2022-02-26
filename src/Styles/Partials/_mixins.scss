@@ -1,19 +1,24 @@
-@use "./variables" as *;
-@use "./fonts" as *;
+@use "./Variables" as *;
+@use "./Fonts" as *;
 @mixin fix($breakpoint) {
   @if $breakpoint == tablet {
-    @media screen and (max-width: $tablet) {
+    @media screen and (min-width: $tablet) {
       @content;
     }
   }
   @if $breakpoint == desktop {
-    @media screen and (max-width: $desktop) {
+    @media screen and (min-width: $desktop) {
+      @content;
+    }
+  }
+  @if $breakpoint == phone {
+    @media screen and (max-width: $mobile) {
       @content;
     }
   }
 }
 
-@mixin text-style($w, $c: $black) {
+@mixin text-style($w, $c: $brainFlix-black) {
   font-family: "avenir";
   font-weight: $w;
   color: $c;
