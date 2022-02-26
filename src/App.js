@@ -1,16 +1,23 @@
 import Logo from "./Assets/Logo/BrainFlix-logo.svg";
 import Pfp from "./Assets/Images/Mohan-muruge.jpg";
 import Header from "./Components/Header";
+import Hero from "./Components/Hero";
 
 import "./App.scss";
 
 function App() {
   return (
-    <header className="header">
+    <div className="app">
       <Header />
-      {/* <video className="" controls poster="">
-        Sorry, your browser doesn't support embedded videos.
-      </video>
+      <Hero></Hero>
+    </div>
+  );
+}
+
+export default App;
+
+{
+  /*
       <section className="">
         <h1 className="">video title</h1>
         <div className="">
@@ -64,9 +71,5 @@ function App() {
             </p>
           </div>
         </div>
-      </section> */}
-    </header>
-  );
+      </section> */
 }
-
-export default App;
