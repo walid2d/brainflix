@@ -4,6 +4,10 @@
 .video-card {
   display: flex;
   margin-bottom: 2.4rem;
+  @include fix(desktop) {
+    width: 33rem;
+    height: 7rem;
+  }
   &__img {
     background-color: $mercury;
     width: 12rem;
@@ -33,7 +37,7 @@
     @include text-style(700);
     margin-bottom: 1rem;
     @include fix(tablet) {
-      width: 60%;
+      width: 70%;
     }
     @include fix(desktop) {
       width: 92%;

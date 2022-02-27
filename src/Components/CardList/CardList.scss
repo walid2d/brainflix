@@ -1,0 +1,22 @@
+@use "../../Styles/Partials/Variables" as *;
+@use "../../Styles/Partials/Mixins" as *;
+
+.cardlist {
+  padding: 0 1.6rem;
+  margin-top: 2.6rem;
+  @include fix(tablet) {
+    padding-left: 3.4rem;
+    padding-right: 3.4rem;
+  }
+  @include fix(desktop) {
+    border-left: 1px solid $mercury;
+    padding-left: 1.6rem;
+  }
+
+  &__header {
+    @include text-size(2rem, 1.3rem);
+    @include text-style(700, $silver);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+}

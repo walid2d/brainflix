@@ -5,6 +5,13 @@
   display: flex;
   flex-direction: column;
   padding: 2.4rem 1.6rem 1.6rem 1.6rem;
+  @include fix(tablet) {
+    padding-left: 3.4rem;
+    padding-right: 3.4rem;
+  }
+  @include fix(desktop) {
+    padding-right: 1.6rem;
+  }
   &__title {
     @include text-size(3.2rem, 2.4rem);
     @include text-style(700);
@@ -61,6 +68,9 @@
   &__box-kpi {
     @extend .videoinfo__box-id;
     margin-right: auto;
+    @include fix(tablet) {
+      margin: 0;
+    }
   }
 
   &__views,

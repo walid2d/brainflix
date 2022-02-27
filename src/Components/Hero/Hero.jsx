@@ -1,9 +1,9 @@
 import "./Hero.scss";
 
-function Hero() {
+function Hero(props) {
   return (
     <section className="video">
-      <video className="video__player" src="" controls poster=""></video>
+      <video className="video__player" controls poster={props.poster}></video>
     </section>
   );
 }

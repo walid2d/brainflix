@@ -1,3 +1,6 @@
+@use "./Styles/Partials/Variables" as *;
+@use "./Styles/Partials/Mixins" as *;
+
 * {
   margin: 0;
   padding: 0;
@@ -6,4 +9,18 @@ html {
   box-sizing: border-box;
   scroll-behavior: smooth;
   font-size: 62.5%;
+}
+.main__wrapper {
+  @include fix(desktop) {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 98%;
+    margin: 0 auto;
+  }
+}
+.main__comment-box {
+  @include fix(desktop) {
+    width: 60%;
+  }
 }
