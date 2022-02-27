@@ -1,8 +1,9 @@
 import "./Comment.scss";
-import "./Header.scss";
-import Pfp from "../Assets/Images/Mohan-muruge.jpg";
+import "../Header/Header.scss";
+import UserComment from "../UserComment/UserComment";
+import Pfp from "../../Assets/Images/Mohan-muruge.jpg";
 
-function Comment() {
+function Comment(props) {
   return (
     <section className="comment">
       <form className="form">
@@ -24,6 +25,7 @@ function Comment() {
           ></input>
         </div>
       </form>
+      <div className="forum"></div>
     </section>
   );
 }

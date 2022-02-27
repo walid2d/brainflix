@@ -1,5 +1,5 @@
 import "./UserComment.scss";
-import "./Header.scss";
+import "../Header/Header.scss";
 
 function UserComment() {
   return (
