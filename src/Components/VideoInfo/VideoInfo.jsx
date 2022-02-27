@@ -1,6 +1,6 @@
 import "./VideoInfo.scss";
-import ViewsIcon from "../Assets/Icons/views.svg";
-import LikeIcon from "../Assets/Icons/likes.svg";
+import ViewsIcon from "../../Assets/Icons/views.svg";
+import LikeIcon from "../../Assets/Icons/likes.svg";
 
 function Videoinfo() {
   return (

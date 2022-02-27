@@ -1,0 +1,42 @@
+@use "../../Styles/Partials/Variables" as *;
+@use "../../Styles/Partials/Mixins" as *;
+
+.video-card {
+  display: flex;
+  margin-bottom: 2.4rem;
+  &__img {
+    background-color: $mercury;
+    width: 12rem;
+    min-width: 12rem;
+    height: 7rem;
+    object-fit: cover;
+    margin-right: 1.6rem;
+    border-radius: 0.4rem;
+    &:hover {
+      cursor: pointer;
+    }
+    @include fix(desktop) {
+      height: 7.9rem;
+    }
+  }
+  &__box {
+    @include text-size(1.8rem, 1.3rem);
+    @include fix(tablet) {
+      @include text-size(2.2rem, 1.4rem);
+    }
+  }
+  &__creator {
+    @include text-style(400);
+  }
+  &__des {
+    width: 100%;
+    @include text-style(700);
+    margin-bottom: 1rem;
+    @include fix(tablet) {
+      width: 60%;
+    }
+    @include fix(desktop) {
+      width: 92%;
+    }
+  }
+}

@@ -1,5 +1,5 @@
-@use "../Styles/Partials/Variables" as *;
-@use "../Styles/Partials/Mixins" as *;
+@use "../../Styles/Partials/Variables" as *;
+@use "../../Styles/Partials/Mixins" as *;
 
 .comment {
   padding: 0rem 1.6rem 1.6rem 1.6rem;
@@ -39,6 +39,6 @@
   &--btn {
     align-self: flex-end;
 
-    background-image: url("../Assets/Icons/add_comment.svg");
+    background-image: url("../../Assets/Icons/add_comment.svg");
   }
 }

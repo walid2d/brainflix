@@ -1,5 +1,5 @@
-@use "../Styles/Partials/Variables" as *;
-@use "../Styles/Partials/Mixins" as *;
+@use "../../Styles/Partials/Variables" as *;
+@use "../../Styles/Partials/Mixins" as *;
 
 .nav {
   padding: 1.6rem;
@@ -72,7 +72,7 @@
     padding: 1.2rem;
     padding-left: 3.8rem;
     border: 1px solid $mercury;
-    background: $alabaster url(../Assets/Icons/search.svg) no-repeat 1.3rem
+    background: $alabaster url("../../Assets/Icons/search.svg") no-repeat 1.3rem
       center;
     @include fix(tablet) {
       min-height: 4rem;
@@ -93,7 +93,7 @@
   }
 }
 .btn {
-  background-image: url("../Assets/Icons/upload.svg");
+  background-image: url("../../Assets/Icons/upload.svg");
   background-repeat: no-repeat;
   background-position: 3% 55%;
   border-color: transparent;
