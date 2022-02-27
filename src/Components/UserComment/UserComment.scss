@@ -19,29 +19,31 @@
     margin: 0;
     align-self: baseline;
     background-color: $mercury;
+    display: inline-flex;
   }
   &__name,
   &__date,
   &__text {
     @include text-size(1.8rem, 1.3rem);
-
-    @include text-style(400);
+    font-family: "avenir";
     padding: 0;
     margin: 0;
     @include fix(tablet) {
       @include text-size(2.2rem, 1.4rem);
     }
-    &__name {
-      font-weight: 600;
-    }
-    &__date {
-      color: $silver;
-    }
-    &__text {
-      align-self: flex-start;
-      width: 100%;
-      @include text-size(1.8rem, 1.3rem);
-      @include text-style(400);
-    }
+  }
+  &__date {
+    @include text-style(400);
+    color: $silver;
+  }
+  &__name {
+    @include text-style(700);
+  }
+  &__text {
+    margin-top: 0.4rem;
+    align-self: flex-start;
+    width: 100%;
+    @include text-size(1.8rem, 1.3rem);
+    @include text-style(400);
   }
 }

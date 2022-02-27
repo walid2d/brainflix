@@ -4,7 +4,7 @@
 .nav {
   padding: 1.6rem;
   @include fix(tablet) {
-    padding: 1.6rem 2.4rem;
+    padding: 1.6rem 3.4rem;
   }
   &__wrapper {
     display: flex;
@@ -85,10 +85,6 @@
     &::placeholder {
       @include text-size(2rem, 1.2rem);
       @include text-style(400);
-    }
-    @include fix(tablet) {
-      height: 4rem;
-      min-width: 24rem;
     }
   }
 }

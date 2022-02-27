@@ -2,7 +2,7 @@ import "./Comment.scss";
 import "../Header/Header.scss";
 import UserComment from "../UserComment/UserComment";
 import Pfp from "../../Assets/Images/Mohan-muruge.jpg";
-
+import { v4 as uuid } from "uuid";
 function Comment(props) {
   return (
     <section className="comment">
@@ -14,7 +14,7 @@ function Comment(props) {
           </label>
           <textarea
             type="text"
-            className="form__input search__input"
+            className="form__input"
             name="usercomment"
             placeholder="Add a comment"
           ></textarea>
@@ -25,7 +25,18 @@ function Comment(props) {
           ></input>
         </div>
       </form>
-      <div className="forum"></div>
+      <div className="comment__forum">
+        {props.comment.map((e, i) => {
+          return (
+            <UserComment
+              key={uuid()}
+              name={e.name}
+              date={e.timestamp}
+              text={e.comment}
+            />
+          );
+        })}
+      </div>
     </section>
   );
 }
