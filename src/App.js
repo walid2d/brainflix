@@ -1,9 +1,8 @@
-import Logo from "./Assets/Logo/BrainFlix-logo.svg";
-import Pfp from "./Assets/Images/Mohan-muruge.jpg";
 import Header from "./Components/Header";
 import Hero from "./Components/Hero";
 import Videoinfo from "./Components/VideoInfo";
 import Comment from "./Components/Comment";
+import UserComment from "./Components/UserComment";
 
 import "./App.scss";
 
@@ -14,6 +13,9 @@ function App() {
       <Hero></Hero>
       <Videoinfo />
       <Comment />
+      <UserComment />
+      <UserComment />
+      <UserComment />
     </div>
   );
 }
