@@ -1,0 +1,47 @@
+@use "../Styles/Partials/Variables" as *;
+@use "../Styles/Partials/Mixins" as *;
+
+.user-comment {
+  width: 100%;
+  display: flex;
+  gap: 1.6rem;
+  border-top: 1px solid $mercury;
+  padding: 2rem 0 2rem 0;
+
+  &__wrapper {
+    width: 100%;
+  }
+  &__text-box {
+    @include flex($content: space-between, $items: stretch);
+  }
+
+  &__img {
+    margin: 0;
+    align-self: baseline;
+    background-color: $mercury;
+  }
+  &__name,
+  &__date,
+  &__text {
+    @include text-size(1.8rem, 1.3rem);
+
+    @include text-style(400);
+    padding: 0;
+    margin: 0;
+    @include fix(tablet) {
+      @include text-size(2.2rem, 1.4rem);
+    }
+    &__name {
+      font-weight: 600;
+    }
+    &__date {
+      color: $silver;
+    }
+    &__text {
+      align-self: flex-start;
+      width: 100%;
+      @include text-size(1.8rem, 1.3rem);
+      @include text-style(400);
+    }
+  }
+}
