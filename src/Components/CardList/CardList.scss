@@ -1,0 +1,21 @@
+@use "../../Styles/Partials/Variables" as *;
+@use "../../Styles/Partials/Mixins" as *;
+
+.cardlist {
+  @include flex($direction: column, $items: flex-start);
+  gap: 1.6rem;
+  padding: 1.6rem 1.6rem;
+  @include fix(tablet) {
+    padding: 2.4rem 3.6rem 1.6rem 3.6rem;
+  }
+  @include fix(desktop) {
+    border-left: 1px solid $mercury;
+    padding: 2.4rem 0 1.6rem 1.6rem;
+    width: 30%;
+  }
+  &__header {
+    @include text-size(2rem, 1.3rem);
+    @include text-style(700, $silver);
+    text-transform: uppercase;
+  }
+}

@@ -1,0 +1,55 @@
+@use "../../Styles/Partials/Variables" as *;
+@use "../../Styles/Partials/Mixins" as *;
+
+.user-comment {
+  width: 100%;
+  display: flex;
+  gap: 1.6rem;
+  border-top: 1px solid $mercury;
+  padding: 2rem 0 2rem 0;
+
+  &__wrapper {
+    width: 100%;
+    @include fix(desktop) {
+      padding-right: 1.6rem;
+    }
+  }
+  &__text-box {
+    @include flex($content: space-between, $items: stretch);
+  }
+
+  &__img {
+    margin: 0;
+    align-self: baseline;
+    background-color: $mercury;
+    display: inline-flex;
+    @include fix(tablet) {
+      height: 4rem;
+      width: 4rem;
+    }
+  }
+  &__name,
+  &__date,
+  &__text {
+    @include text-size(1.8rem, 1.3rem);
+    font-family: "avenir";
+    padding: 0;
+    margin: 0;
+    @include fix(tablet) {
+      @include text-size(2.2rem, 1.4rem);
+    }
+  }
+  &__date {
+    @include text-style(400);
+    color: $silver;
+  }
+  &__name {
+    @include text-style(700);
+  }
+  &__text {
+    margin-top: 0.4rem;
+    align-self: flex-start;
+    width: 100%;
+    @include text-style(400);
+  }
+}

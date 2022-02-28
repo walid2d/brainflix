@@ -1,0 +1,87 @@
+@use "../../Styles/Partials/Variables" as *;
+@use "../../Styles/Partials/Mixins" as *;
+
+.videoinfo {
+  display: flex;
+  flex-direction: column;
+  padding: 2.4rem 1.6rem 1.6rem 1.6rem;
+  @include fix(tablet) {
+    padding-left: 3.4rem;
+    padding-right: 3.4rem;
+  }
+  @include fix(desktop) {
+    padding: 2.4rem 0rem 1.6rem 0rem;
+  }
+  &__title {
+    @include text-size(3.2rem, 2.4rem);
+    @include text-style(700);
+    margin-bottom: 1.6rem;
+    @include fix(tablet) {
+      @include text-size(4.4rem, 3.3rem);
+    }
+  }
+  &__author,
+  &__date,
+  &__views-text,
+  &__like-text,
+  &__text,
+  &__cmnts {
+    @include text-size(1.8rem, 1.3rem);
+    @include text-style(400);
+    @include fix(tablet) {
+      @include text-size(2.2rem, 1.4rem);
+    }
+  }
+  &__author,
+  &__cmnts {
+    font-weight: 700;
+  }
+  &__date,
+  &__views-text,
+  &__like-text {
+    color: $silver;
+  }
+  &__wrapper {
+    @include flex($content: flex-start);
+    gap: 4rem;
+    padding: 1.6rem 0;
+    border-top: 1px solid $mercury;
+    border-bottom: 1px solid $mercury;
+    @include fix(tablet) {
+      padding: 0rem 1.6rem 0.6rem 0;
+      border-top: 0px;
+      justify-content: space-between;
+      gap: 0;
+    }
+  }
+  &__box-id {
+    @include flex($items: baseline, $direction: column);
+    margin-right: auto;
+    gap: 1.6rem;
+    @include fix(tablet) {
+      flex-direction: row;
+    }
+  }
+  &__box-kpi {
+    @extend .videoinfo__box-id;
+    margin-right: auto;
+    @include fix(tablet) {
+      margin: 0;
+    }
+  }
+
+  &__views,
+  &__like {
+    @include flex();
+    gap: 0.5rem;
+  }
+  &__wrapper-des {
+    padding: 1.6rem 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    @include fix(desktop) {
+      padding: 1.6rem 1.6rem 0 0;
+    }
+  }
+}

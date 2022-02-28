@@ -1,24 +1,21 @@
-@use "../Styles/Partials/Variables" as *;
-@use "../Styles/Partials/Mixins" as *;
+@use "../../Styles/Partials/Variables" as *;
+@use "../../Styles/Partials/Mixins" as *;
 
 .nav {
   padding: 1.6rem;
   @include fix(tablet) {
-    padding: 1.6rem 2.4rem;
+    padding: 1.6rem 3.4rem;
   }
   &__wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include flex($direction: column);
     gap: 1.6rem;
     width: 100%;
     @include fix(tablet) {
-      flex-direction: row;
-      justify-content: space-between;
+      @include flex($direction: row, $content: space-between);
     }
     @include fix(desktop) {
       margin: 0 auto;
-      width: 95%;
+      width: 90%;
     }
   }
   &__search-box {
@@ -54,17 +51,15 @@
     object-position: 20% 40%;
     height: 4rem;
     width: 4rem;
+    margin-left: 1rem;
     @include fix(phone) {
       display: none;
     }
   }
 }
 .search {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include flex($content: space-between);
   width: 80%;
-
   &__input {
     min-height: 3.6rem;
     width: 100%;
@@ -72,7 +67,7 @@
     padding: 1.2rem;
     padding-left: 3.8rem;
     border: 1px solid $mercury;
-    background: $alabaster url(../Assets/Icons/search.svg) no-repeat 1.3rem
+    background: $alabaster url("../../Assets/Icons/search.svg") no-repeat 1.3rem
       center;
     @include fix(tablet) {
       min-height: 4rem;
@@ -86,16 +81,12 @@
       @include text-size(2rem, 1.2rem);
       @include text-style(400);
     }
-    @include fix(tablet) {
-      height: 4rem;
-      min-width: 24rem;
-    }
   }
 }
 .btn {
-  background-image: url("../Assets/Icons/upload.svg");
+  background-image: url("../../Assets/Icons/upload.svg");
   background-repeat: no-repeat;
-  background-position: 3% 50%;
+  background-position: 3% 55%;
   border-color: transparent;
   background-color: $brainFlix-blue;
   border-radius: 0.4rem;
@@ -108,13 +99,7 @@
   @include fix(tablet) {
     width: 15rem;
   }
-
   &:hover {
     background-color: $brainFlix-darkblue;
-  }
-  &__icon {
-    padding: 0 1rem;
-    height: 3rem;
-    width: 3rem;
   }
 }
