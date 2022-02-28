@@ -10,7 +10,7 @@
     padding-right: 3.4rem;
   }
   @include fix(desktop) {
-    padding-right: 1.6rem;
+    padding: 2.4rem 0rem 1.6rem 0rem;
   }
   &__title {
     @include text-size(3.2rem, 2.4rem);
@@ -42,23 +42,20 @@
     color: $silver;
   }
   &__wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+    @include flex($content: flex-start);
     gap: 4rem;
     padding: 1.6rem 0;
     border-top: 1px solid $mercury;
     border-bottom: 1px solid $mercury;
     @include fix(tablet) {
+      padding: 0rem 1.6rem 0.6rem 0;
       border-top: 0px;
       justify-content: space-between;
       gap: 0;
     }
   }
   &__box-id {
-    display: flex;
-    flex-direction: column;
-    align-items: baseline;
+    @include flex($items: baseline, $direction: column);
     margin-right: auto;
     gap: 1.6rem;
     @include fix(tablet) {
@@ -75,9 +72,7 @@
 
   &__views,
   &__like {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex();
     gap: 0.5rem;
   }
   &__wrapper-des {
@@ -85,5 +80,8 @@
     display: flex;
     flex-direction: column;
     gap: 1.6rem;
+    @include fix(desktop) {
+      padding: 1.6rem 1.6rem 0 0;
+    }
   }
 }

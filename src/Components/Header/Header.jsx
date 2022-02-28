@@ -1,5 +1,4 @@
 import "./Header.scss";
-import LogoUpload from "../../Assets/Icons/upload.svg";
 import Logo from "../../Assets/Logo/BrainFlix-logo.svg";
 import Pfp from "../../Assets/Images/Mohan-muruge.jpg";
 
