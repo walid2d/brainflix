@@ -1,38 +1,41 @@
 import Header from "./Components/Header/Header";
-import React, { useState } from "react";
 import Hero from "./Components/Hero/Hero";
 import Videoinfo from "./Components/VideoInfo/VideoInfo";
 import Comment from "./Components/Comment/Comment";
 import VideoDetails from "./Data/video-details.json";
 import Cardlist from "./Components/CardList/CardList";
-
+import { Component } from "react";
 import "./App.scss";
 
-function App() {
-  const [state, setState] = useState(VideoDetails);
-  let intialState = state[0];
-  console.log(intialState);
-  return (
-    <div className="main">
-      <Header />
-      <Hero poster={intialState.image} duration={intialState.duration}></Hero>
-      <div className="main__wrapper">
-        <div className="main__comment-box">
-          <Videoinfo
-            creator={intialState.channel}
-            text={intialState.description}
-            likes={intialState.likes}
-            title={intialState.title}
-            views={intialState.views}
-            date={intialState.timestamp}
-            cmntsNumber={intialState.comments.length}
+class App extends Component {
+  state = {
+    allData: VideoDetails,
+    initialState: VideoDetails[0],
+  };
+  clickHandler = (id) => {
+    const currentVideo = this.state.allData.find((video) => video.id === id);
+    this.setState({
+      initialState: currentVideo,
+    });
+  };
+  render() {
+    return (
+      <div className="main">
+        <Header />
+        <Hero poster={this.state.initialState.image}></Hero>
+        <div className="main__wrapper">
+          <div className="main__comment-box">
+            <Videoinfo initialVideo={this.state.initialState} />
+            <Comment comment={this.state.initialState.comments} />
+          </div>
+          <Cardlist
+            videoData={this.state.allData}
+            currentVideos={this.state.initialState}
+            updateVideo={this.clickHandler}
           />
-          <Comment comment={intialState.comments} />
         </div>
-        <Cardlist />
       </div>
-    </div>
-  );
+    );
+  }
 }
-
 export default App;
