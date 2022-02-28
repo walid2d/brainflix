@@ -7,14 +7,11 @@
     padding: 1.6rem 3.4rem;
   }
   &__wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include flex($direction: column);
     gap: 1.6rem;
     width: 100%;
     @include fix(tablet) {
-      flex-direction: row;
-      justify-content: space-between;
+      @include flex($direction: row, $content: space-between);
     }
     @include fix(desktop) {
       margin: 0 auto;
@@ -54,17 +51,15 @@
     object-position: 20% 40%;
     height: 4rem;
     width: 4rem;
+    margin-left: 1rem;
     @include fix(phone) {
       display: none;
     }
   }
 }
 .search {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include flex($content: space-between);
   width: 80%;
-
   &__input {
     min-height: 3.6rem;
     width: 100%;
