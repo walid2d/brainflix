@@ -1,3 +1,4 @@
+import Upload from "./Components/Pages/Upload";
 import Header from "./Components/Header/Header";
 import Hero from "./Components/Hero/Hero";
 import Videoinfo from "./Components/VideoInfo/VideoInfo";
@@ -5,6 +6,11 @@ import Comment from "./Components/Comment/Comment";
 import VideoDetails from "./Data/video-details.json";
 import Cardlist from "./Components/CardList/CardList";
 import { Component } from "react";
+import {
+  BrowserRouter,
+  Route,
+  Switch,
+} from "react-router-dom/cjs/react-router-dom.min";
 import "./App.scss";
 
 class App extends Component {
@@ -34,6 +40,7 @@ class App extends Component {
             updateVideo={this.clickHandler}
           />
         </div>
+        <Upload thumbnail={this.state.initialState.image} />
       </div>
     );
   }
