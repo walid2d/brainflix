@@ -9,7 +9,7 @@ function Comment(props) {
       <form className="form">
         <img className="form__img pfp" src={Pfp} />
         <div className="form__wrapper">
-          <label for="comment" className="form__label ">
+          <label htmlFor="comment" className="form__label ">
             Join The Conversation
           </label>
           <textarea

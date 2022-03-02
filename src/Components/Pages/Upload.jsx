@@ -17,7 +17,7 @@ function Upload(props) {
             />
           </div>
           <form className=" upload-page__form">
-            <label for="name" className="upload-page__form-label label">
+            <label className="upload-page__form-label label">
               Title your video
             </label>
             <input
@@ -27,7 +27,7 @@ function Upload(props) {
               placeholder="Add a title to your video"
               autocomple="off"
             />
-            <label for="comment" className=" upload-page__form-label label">
+            <label className=" upload-page__form-label label">
               Add a video description
             </label>
             <textarea
@@ -36,7 +36,6 @@ function Upload(props) {
               name="comment"
               autocomple="off"
               placeholder="Add a description to your video"
-              spellcheck="true"
             ></textarea>
           </form>
         </div>
