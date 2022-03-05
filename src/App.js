@@ -7,12 +7,7 @@ import Comment from "./Components/Comment/Comment";
 import VideoDetails from "./Data/video-details.json";
 import Cardlist from "./Components/CardList/CardList";
 import { Component } from "react";
-import {
-  BrowserRouter,
-  Route,
-  Switch,
-  Redirect,
-} from "react-router-dom/cjs/react-router-dom.min";
+import { Route, Switch, Redirect } from "react-router-dom";
 import "./App.scss";
 
 class App extends Component {
