@@ -1,7 +1,7 @@
 import "./Upload.scss";
 import { Redirect } from "react-router-dom";
-import { render } from "@testing-library/react";
 import { Component } from "react";
+import VideoThumbnail from "../../Assets/Images/Upload-video-preview.jpg";
 
 class Upload extends Component {
   state = {
@@ -34,8 +34,8 @@ class Upload extends Component {
                 Video Thumbnail
               </h4>
               <img
-                src={this.props.thumbnail}
-                alt=""
+                src={VideoThumbnail}
+                alt="A person riding a blue bike"
                 className="upload-page__thumbnail-img"
               />
             </div>
@@ -69,7 +69,7 @@ class Upload extends Component {
               value="publish"
             />
             <input
-              type="submit"
+              type="reset"
               className="upload-page__btn-cancel btn"
               value="cancel"
             />
