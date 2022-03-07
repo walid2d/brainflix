@@ -1,60 +1,27 @@
-import Upload from "./Components/Pages/Upload";
+import Upload from "./Components/Pages/Upload/Upload";
 import Header from "./Components/Header/Header";
-import NotFound from "./Components/Pages/NotFound";
-import Hero from "./Components/Hero/Hero";
-import Videoinfo from "./Components/VideoInfo/VideoInfo";
-import Comment from "./Components/Comment/Comment";
-import VideoDetails from "./Data/video-details.json";
-import Cardlist from "./Components/CardList/CardList";
+import NotFound from "./Components/Pages/NotFound/NotFound";
 import { Component } from "react";
-import {
-  BrowserRouter,
-  Route,
-  Switch,
-  Redirect,
-} from "react-router-dom/cjs/react-router-dom.min";
+import { Route, Switch, Redirect, BrowserRouter } from "react-router-dom";
 import "./App.scss";
+import MainPage from "./Components/MainPage/MainPage";
 
 class App extends Component {
-  state = {
-    allData: VideoDetails,
-    initialState: VideoDetails[0],
-  };
-  clickHandler = (id) => {
-    const currentVideo = this.state.allData.find((video) => video.id === id);
-    this.setState({
-      initialState: currentVideo,
-    });
-  };
   render() {
     return (
-      <div className="main">
-        <Header />
-        <Switch>
-          <Route path="/" exact>
-            <Redirect to="/home" />
-          </Route>
-          <Route path="/home" exact>
-            <Hero poster={this.state.initialState.image}></Hero>
-            <div className="main__wrapper">
-              <div className="main__comment-box">
-                <Videoinfo initialVideo={this.state.initialState} />
-                <Comment comment={this.state.initialState.comments} />
-              </div>
-              <Cardlist
-                videoData={this.state.allData}
-                currentVideos={this.state.initialState}
-                updateVideo={this.clickHandler}
-              />
-            </div>
-          </Route>
-          <Route path="/upload">
-            <Upload thumbnail={this.state.initialState.image} />
-          </Route>
-          <Route path="*">
-            <NotFound />
-          </Route>
-        </Switch>
+      <div>
+        <BrowserRouter>
+          <Header />
+          <Switch>
+            <Route path="/" exact>
+              <Redirect to="/home" />
+            </Route>
+            <Route path="/home" exact component={MainPage} />
+            <Route path="/upload" exact component={Upload} />
+            <Route path="/home/:videoId" exact component={MainPage} />
+            <Route path="*" component={NotFound} />
+          </Switch>
+        </BrowserRouter>
       </div>
     );
   }

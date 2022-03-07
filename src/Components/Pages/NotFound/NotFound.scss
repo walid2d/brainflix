@@ -1,10 +1,8 @@
-@use "../../Styles/Partials/Variables" as *;
-@use "../../Styles/Partials/Mixins" as *;
+@use "../../../Styles/Partials/Variables" as *;
+@use "../../../Styles/Partials/Mixins" as *;
 
 .notfound {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex();
   height: 45rem;
   &__title {
     margin: 0 auto;

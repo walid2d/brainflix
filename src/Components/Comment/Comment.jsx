@@ -2,7 +2,7 @@ import "./Comment.scss";
 import "../Header/Header.scss";
 import UserComment from "../UserComment/UserComment";
 import Pfp from "../../Assets/Images/Mohan-muruge.jpg";
-import { v4 as uuid } from "uuid";
+
 function Comment(props) {
   return (
     <section className="comment">
@@ -26,10 +26,10 @@ function Comment(props) {
         </div>
       </form>
       <div className="comment__forum">
-        {props.comment.map((e, i) => {
+        {props.comment.map((e) => {
           return (
             <UserComment
-              key={uuid()}
+              key={e.id}
               name={e.name}
               date={e.timestamp}
               text={e.comment}

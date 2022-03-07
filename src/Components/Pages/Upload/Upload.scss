@@ -1,5 +1,5 @@
-@use "../../Styles/Partials/Variables" as *;
-@use "../../Styles/Partials/Mixins" as *;
+@use "../../../Styles/Partials/Variables" as *;
+@use "../../../Styles/Partials/Mixins" as *;
 
 .upload-page {
   padding: 2.4rem 1.6rem;
@@ -22,10 +22,7 @@
     }
   }
   &__wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: stretch;
+    @include flex($direction: column, $items: stretch);
     gap: 1.6rem;
     @include fix(tablet) {
       border-top: 1px solid $mercury;
@@ -41,10 +38,7 @@
     }
   }
   &__thumbnail {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: stretch;
+    @include flex($direction: column, $items: stretch, $content: flex-start);
     @include fix(tablet) {
       margin-top: 2.4rem;
       @include fix(desktop) {
@@ -56,7 +50,6 @@
       background-color: $mercury;
       min-width: 12rem;
       width: 100%;
-      height: 18rem;
       object-fit: cover;
       border-radius: 0.4rem;
       @include fix(tablet) {
@@ -100,16 +93,14 @@
   &__input-comment {
     @extend .upload-page__input;
     height: 10rem;
+    margin-bottom: 2.4rem;
     @include fix(desktop) {
       height: 12.5rem;
       margin-bottom: 0;
     }
   }
   &__btn-box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @include flex($direction: column);
     gap: 2.4rem;
     @include fix(tablet) {
       flex-direction: row-reverse;
@@ -117,7 +108,7 @@
     }
   }
   &__btn {
-    background-image: url(../../Assets/Icons/publish.svg) !important;
+    background-image: url(../../../Assets/Icons/publish.svg) !important;
   }
   &__btn-cancel {
     background: white !important;
