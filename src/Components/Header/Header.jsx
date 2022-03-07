@@ -7,7 +7,7 @@ function Header() {
   return (
     <nav className="nav">
       <div className="nav__wrapper">
-        <Link to="/">
+        <Link to="/home">
           <img className="nav__logo" src={Logo} alt=""></img>
         </Link>
         <div className="nav__search-box">

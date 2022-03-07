@@ -1,11 +1,11 @@
 import "./Upload.scss";
 import { Redirect } from "react-router-dom";
 import { Component } from "react";
-import VideoThumbnail from "../../Assets/Images/Upload-video-preview.jpg";
+import VideoThumbnail from "../../../Assets/Images/Upload-video-preview.jpg";
 
 class Upload extends Component {
   state = {
-    submit: false,
+    submit: null,
   };
 
   onSubmitHandler = (event) => {
@@ -17,6 +17,7 @@ class Upload extends Component {
       alert(`Please Populate The Form!`);
     }
   };
+
   render() {
     if (this.state.submit) {
       return <Redirect to="/" />;

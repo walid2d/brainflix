@@ -1,6 +1,6 @@
-import Upload from "./Components/Pages/Upload";
+import Upload from "./Components/Pages/Upload/Upload";
 import Header from "./Components/Header/Header";
-import NotFound from "./Components/Pages/NotFound";
+import NotFound from "./Components/Pages/NotFound/NotFound";
 import { Component } from "react";
 import { Route, Switch, Redirect, BrowserRouter } from "react-router-dom";
 import "./App.scss";
