@@ -1,0 +1,127 @@
+@use "../../../Styles/Partials/Variables" as *;
+@use "../../../Styles/Partials/Mixins" as *;
+
+.upload-page {
+  padding: 2.4rem 1.6rem;
+  border-top: 1px solid $mercury;
+  @include fix(tablet) {
+    padding: 2.4rem 3.6rem;
+  }
+  &__container {
+    @include fix(desktop) {
+      margin: 0 auto;
+      width: 90%;
+    }
+  }
+  &__title {
+    @include text-size(3.2rem, 2.4rem);
+    @include text-style(700);
+    margin-bottom: 1.6rem;
+    @include fix(tablet) {
+      @include text-size(4.4rem, 3.3rem);
+    }
+  }
+  &__wrapper {
+    @include flex($direction: column, $items: stretch);
+    gap: 1.6rem;
+    @include fix(tablet) {
+      border-top: 1px solid $mercury;
+      border-bottom: 1px solid $mercury;
+      margin-bottom: 1.6rem;
+    }
+    @include fix(desktop) {
+      flex-direction: row;
+      align-items: center;
+      padding: 2.4rem 0;
+      gap: 2.4rem;
+      margin-bottom: 2.4rem;
+    }
+  }
+  &__thumbnail {
+    @include flex($direction: column, $items: stretch, $content: flex-start);
+    @include fix(tablet) {
+      margin-top: 2.4rem;
+      @include fix(desktop) {
+        margin: 0;
+        flex-basis: 30%;
+      }
+    }
+    &-img {
+      background-color: $mercury;
+      min-width: 12rem;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 0.4rem;
+      @include fix(tablet) {
+        width: 40rem;
+        height: 23rem;
+      }
+    }
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    @include fix(desktop) {
+      flex-basis: 70%;
+      align-items: baseline;
+    }
+  }
+  &__input {
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 0.4rem;
+    padding: 1.6rem;
+    border: 1px solid $mercury;
+    background: $alabaster;
+    margin-bottom: 1.6rem;
+    min-height: 3.6rem;
+    @include fix(tablet) {
+      min-height: 4rem;
+    }
+    @include fix(desktop) {
+      width: 100%;
+      margin-bottom: 2.4rem;
+    }
+    &:focus {
+      outline: 2px solid $brainFlix-blue;
+    }
+    &::placeholder {
+      @include text-size(2rem, 1.2rem);
+      @include text-style(400);
+    }
+  }
+  &__input-comment {
+    @extend .upload-page__input;
+    height: 10rem;
+    margin-bottom: 2.4rem;
+    @include fix(desktop) {
+      height: 12.5rem;
+      margin-bottom: 0;
+    }
+  }
+  &__btn-box {
+    @include flex($direction: column);
+    gap: 2.4rem;
+    @include fix(tablet) {
+      flex-direction: row-reverse;
+      justify-content: flex-start;
+    }
+  }
+  &__btn {
+    background-image: url(../../../Assets/Icons/publish.svg) !important;
+  }
+  &__btn-cancel {
+    background: white !important;
+    color: $brainFlix-blue !important;
+  }
+}
+
+.label {
+  @include text-size(2rem, 1.2rem);
+  @include text-style(700, $silver);
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+  @include fix(tablet) {
+    width: 100%;
+  }
+}

@@ -96,6 +96,12 @@
   text-transform: uppercase;
   @include text-size(2rem, 1.2rem);
   @include text-style(700, $very-white);
+  &--link {
+    width: 100%;
+    @include fix(tablet) {
+      width: 15rem;
+    }
+  }
   @include fix(tablet) {
     width: 15rem;
   }
