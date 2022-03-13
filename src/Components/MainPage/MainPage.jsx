@@ -8,22 +8,20 @@ import axios from "axios";
 
 class MainPage extends Component {
   state = {
-    apiKey: `0f25b2ac-5681-4872-aef4-ffa7ca440e6f`,
     videoData: null,
     initialState: null,
   };
 
   componentDidMount() {
     axios
-      .get(
-        `https://project-2-api.herokuapp.com/videos/?api_key=${this.state.apiKey}`
-      )
+      .get(`${process.env.REACT_APP_API}/videos`)
       .then((response) => {
-        const alldata = response.data;
+        const alldata = response.data.data;
         this.setState({
           videoData: alldata,
         });
-        const initialStateId = response.data[0].id;
+
+        const initialStateId = response.data.data[0].id;
         const currentId = this.props.match.params.videoId;
         let id = "";
         if (!currentId) {
@@ -32,11 +30,9 @@ class MainPage extends Component {
           id = currentId;
         }
         axios
-          .get(
-            `https://project-2-api.herokuapp.com/videos/${id}?api_key=${this.state.apiKey}`
-          )
+          .get(`${process.env.REACT_APP_API}/videos/${id}`)
           .then((response) => {
-            const intialData = response.data;
+            const intialData = response.data.data;
             this.setState({
               initialState: intialData,
             });
@@ -49,12 +45,10 @@ class MainPage extends Component {
     const currentId = this.props.match.params.videoId;
     if (prevprops.match.params.videoId !== currentId) {
       axios
-        .get(
-          `https://project-2-api.herokuapp.com/videos/${currentId}?api_key=${this.state.apiKey}`
-        )
+        .get(`${process.env.REACT_APP_API}/videos/${currentId}`)
         .then((response) => {
           this.setState({
-            initialState: response.data,
+            initialState: response.data.data,
           });
         })
         .catch((err) => console.log(err));

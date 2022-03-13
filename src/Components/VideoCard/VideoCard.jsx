@@ -3,7 +3,11 @@ import "./VideoCard.scss";
 function VideoCard(props) {
   return (
     <section className="video-card">
-      <img className="video-card__img" src={props.image} alt={props.alt} />
+      <img
+        className="video-card__img"
+        src={`${process.env.REACT_APP_API}${props.image}`}
+        alt={props.alt}
+      />
       <div className="video-card__box">
         <p className="video-card__des">{props.title}</p>
         <p className="video-card__creator">{props.channel}</p>
