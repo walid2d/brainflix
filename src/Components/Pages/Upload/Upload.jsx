@@ -2,7 +2,7 @@ import "./Upload.scss";
 import { Redirect } from "react-router-dom";
 import { Component } from "react";
 import VideoThumbnail from "../../../Assets/Images/Upload-video-preview.jpg";
-
+import axios from "axios";
 class Upload extends Component {
   state = {
     submit: null,
@@ -11,6 +11,17 @@ class Upload extends Component {
   onSubmitHandler = (event) => {
     event.preventDefault();
     if (event.target.name.value && event.target.description.value) {
+      axios
+        .post(`${process.env.REACT_APP_API}/videos/post`, {
+          title: event.target.name.value,
+          description: event.target.description.value,
+        })
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
       alert(`Form Successfully Submitted!`);
       this.setState({ submit: true });
     } else {
