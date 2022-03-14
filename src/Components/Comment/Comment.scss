@@ -25,6 +25,7 @@
     @include flex($direction: column, $items: flex-start);
     width: 100%;
     @include fix(tablet) {
+      justify-content: flex-start;
       flex-direction: row;
       flex-wrap: wrap;
     }
@@ -32,28 +33,35 @@
       padding-right: 1.6rem;
     }
   }
+  &__input-wrapper {
+    width: 100%;
+    @include fix(tablet) {
+      display: flex;
+    }
+  }
   &__input {
     box-sizing: border-box;
-    width: 95%;
+    font-family: "avenir";
+    color: $black;
+    width: 100%;
     border-radius: 0.4rem;
     padding: 0.8rem 0 0 1.2rem;
     border: 1px solid $mercury;
     background: $alabaster;
-    margin-bottom: 1.6rem;
     height: 8rem;
-    @include fix(tablet) {
-      margin: 0 auto 0 0;
-      height: 4rem;
-      width: 75%;
+    resize: none;
+    @include fix(phone) {
+      margin-bottom: 1.6rem;
     }
-    @include fix(desktop) {
-      width: 73%;
+    @include fix(tablet) {
+      height: 4rem;
+      max-width: 100%;
     }
     &:focus {
-      outline: 2px solid $brainFlix-blue;
+      outline: 2px solid $blue-primary;
     }
     &::placeholder {
-      @include text-size(2rem, 1.2rem);
+      @include text-size(2.2rem, 1.4rem);
       @include text-style(400);
     }
   }
@@ -79,5 +87,8 @@
   &--btn {
     align-self: flex-end;
     background-image: url("../../Assets/Icons/add_comment.svg");
+    @include fix(tablet) {
+      margin-left: 1.6rem;
+    }
   }
 }

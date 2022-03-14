@@ -18,7 +18,7 @@
   }
 }
 
-@mixin text-style($w, $c: $brainFlix-black) {
+@mixin text-style($w, $c: $black) {
   font-family: "avenir";
   font-weight: $w;
   color: $c;

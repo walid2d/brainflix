@@ -5,7 +5,7 @@ function Hero(props) {
     <section className="video">
       <video
         className="video__player"
-        poster={`${process.env.REACT_APP_API}${props.poster}`}
+        poster={`${process.env.REACT_APP_API}${props.image}`}
         controls
       ></video>
     </section>

@@ -11,7 +11,7 @@
 }
 .main__comment-box {
   @include fix(desktop) {
-    width: 60%;
+    width: 75rem;
   }
 }
 .loading-text {
