@@ -42,6 +42,7 @@
   &__input {
     box-sizing: border-box;
     font-family: "avenir";
+    color: $black;
     width: 100%;
     border-radius: 0.4rem;
     padding: 0.8rem 0 0 1.2rem;
@@ -57,7 +58,7 @@
       max-width: 100%;
     }
     &:focus {
-      outline: 2px solid $btn-color;
+      outline: 2px solid $blue-primary;
     }
     &::placeholder {
       @include text-size(2.2rem, 1.4rem);

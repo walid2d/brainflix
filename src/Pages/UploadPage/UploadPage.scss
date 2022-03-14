@@ -10,7 +10,7 @@
   &__container {
     @include fix(desktop) {
       margin: 0 auto;
-      width: 89%;
+      width: 110rem;
     }
   }
   &__title {
@@ -70,6 +70,7 @@
     box-sizing: border-box;
     width: 100%;
     font-family: "avenir";
+    color: $black;
     border-radius: 0.4rem;
     padding: 1.6rem;
     border: 1px solid $mercury;
@@ -84,7 +85,7 @@
       margin-bottom: 2.4rem;
     }
     &:focus {
-      outline: 2px solid $btn-color;
+      outline: 2px solid $blue-primary;
     }
     &::placeholder {
       @include text-size(2.2rem, 1.4rem);
@@ -114,7 +115,7 @@
   }
   &__btn-cancel {
     background: white !important;
-    color: $btn-color !important;
+    color: $blue-primary !important;
   }
 }
 
