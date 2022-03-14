@@ -1,6 +1,6 @@
-import Upload from "./Components/Pages/Upload/Upload";
+import UploadPage from "./Pages/UploadPage/Upload";
 import Header from "./Components/Header/Header";
-import NotFound from "./Components/Pages/NotFound/NotFound";
+import NotFound from "./Pages/NotFound/NotFound";
 import { Component } from "react";
 import { Route, Switch, Redirect, BrowserRouter } from "react-router-dom";
 import "./App.scss";
@@ -17,7 +17,7 @@ class App extends Component {
               <Redirect to="/home" />
             </Route>
             <Route path="/home" exact component={MainPage} />
-            <Route path="/upload" exact component={Upload} />
+            <Route path="/upload" exact component={UploadPage} />
             <Route path="/home/:videoId" exact component={MainPage} />
             <Route path="*" component={NotFound} />
           </Switch>

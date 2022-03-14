@@ -1,5 +1,5 @@
-@use "../../../Styles/Partials/Variables" as *;
-@use "../../../Styles/Partials/Mixins" as *;
+@use "../../Styles/Partials/Variables" as *;
+@use "../../Styles/Partials/Mixins" as *;
 
 .upload-page {
   padding: 2.4rem 1.6rem;
@@ -10,7 +10,7 @@
   &__container {
     @include fix(desktop) {
       margin: 0 auto;
-      width: 90%;
+      width: 89%;
     }
   }
   &__title {
@@ -110,7 +110,7 @@
     }
   }
   &__btn {
-    background-image: url(../../../Assets/Icons/publish.svg) !important;
+    background-image: url(../../Assets/Icons/publish.svg) !important;
   }
   &__btn-cancel {
     background: white !important;

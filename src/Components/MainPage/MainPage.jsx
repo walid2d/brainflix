@@ -8,11 +8,12 @@ import axios from "axios";
 
 class MainPage extends Component {
   state = {
-    videoData: null,
-    initialState: null,
+    videoData: {},
+    initialState: {},
   };
 
   componentDidMount() {
+    document.title = "Brainflix";
     axios
       .get(`${process.env.REACT_APP_API}/videos`)
       .then((response) => {
@@ -21,11 +22,11 @@ class MainPage extends Component {
           videoData: alldata,
         });
 
-        const initialStateId = response.data.data[0].id;
+        const currentVideoId = response.data.data[0].id;
         const currentId = this.props.match.params.videoId;
         let id = "";
         if (!currentId) {
-          id = initialStateId;
+          id = currentVideoId;
         } else {
           id = currentId;
         }
@@ -34,7 +35,7 @@ class MainPage extends Component {
           .then((response) => {
             const intialData = response.data.data;
             this.setState({
-              initialState: intialData,
+              currentVideo: intialData,
             });
           });
       })
@@ -48,7 +49,7 @@ class MainPage extends Component {
         .get(`${process.env.REACT_APP_API}/videos/${currentId}`)
         .then((response) => {
           this.setState({
-            initialState: response.data.data,
+            currentVideo: response.data.data,
           });
         })
         .catch((err) => console.log(err));
@@ -56,23 +57,20 @@ class MainPage extends Component {
     }
   }
   render() {
-    const { videoData, initialState } = this.state;
-    if (videoData && initialState) {
+    const { videoData, currentVideo } = this.state;
+    if (videoData && currentVideo) {
       const filteredVideo = videoData.filter(
-        (ele) => ele.id !== initialState.id
+        (ele) => ele.id !== currentVideo.id
       );
       return (
         <div className="main">
-          <Hero image={initialState.image}></Hero>
+          <Hero image={currentVideo.image}></Hero>
           <div className="main__wrapper">
             <div className="main__comment-box">
-              <Videoinfo allInfo={initialState} />
-              <Comment comment={initialState.comments} />
+              <Videoinfo allInfo={currentVideo} />
+              <Comment comment={currentVideo.comments} />
             </div>
-            <Cardlist
-              videoList={filteredVideo}
-              updateVideo={this.clickHandler}
-            />
+            <Cardlist videoList={filteredVideo} />
           </div>
         </div>
       );
