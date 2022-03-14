@@ -69,6 +69,7 @@
   &__input {
     box-sizing: border-box;
     width: 100%;
+    font-family: "avenir";
     border-radius: 0.4rem;
     padding: 1.6rem;
     border: 1px solid $mercury;
@@ -83,10 +84,10 @@
       margin-bottom: 2.4rem;
     }
     &:focus {
-      outline: 2px solid $brainFlix-blue;
+      outline: 2px solid $btn-color;
     }
     &::placeholder {
-      @include text-size(2rem, 1.2rem);
+      @include text-size(2.2rem, 1.4rem);
       @include text-style(400);
     }
   }
@@ -94,6 +95,7 @@
     @extend .upload-page__input;
     height: 10rem;
     margin-bottom: 2.4rem;
+    resize: none;
     @include fix(desktop) {
       height: 12.5rem;
       margin-bottom: 0;
@@ -112,7 +114,7 @@
   }
   &__btn-cancel {
     background: white !important;
-    color: $brainFlix-blue !important;
+    color: $btn-color !important;
   }
 }
 

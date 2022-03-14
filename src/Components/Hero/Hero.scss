@@ -2,14 +2,15 @@
 @use "../../Styles/Partials/Mixins" as *;
 
 .video {
-  background-color: black;
+  background-color: $darkblack;
   text-align: center;
   &__player {
+    aspect-ratio: 16/9;
     object-fit: cover;
     width: 100%;
     height: 62vw;
     @include fix(tablet) {
-      width: 91%;
+      width: 92%;
       height: 48vw;
     }
     @include fix(desktop) {

@@ -52,20 +52,22 @@ class MainPage extends Component {
           });
         })
         .catch((err) => console.log(err));
+      window.scrollTo(0, 0);
     }
   }
   render() {
-    if (this.state.videoData && this.state.initialState) {
-      const filteredVideo = this.state.videoData.filter(
-        (ele) => ele.id !== this.state.initialState.id
+    const { videoData, initialState } = this.state;
+    if (videoData && initialState) {
+      const filteredVideo = videoData.filter(
+        (ele) => ele.id !== initialState.id
       );
       return (
         <div className="main">
-          <Hero poster={this.state.initialState.image}></Hero>
+          <Hero image={initialState.image}></Hero>
           <div className="main__wrapper">
             <div className="main__comment-box">
-              <Videoinfo allInfo={this.state.initialState} />
-              <Comment comment={this.state.initialState.comments} />
+              <Videoinfo allInfo={initialState} />
+              <Comment comment={initialState.comments} />
             </div>
             <Cardlist
               videoList={filteredVideo}
