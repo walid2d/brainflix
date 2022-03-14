@@ -15,7 +15,7 @@
     }
     @include fix(desktop) {
       margin: 0 auto;
-      width: 90%;
+      width: 110rem;
     }
   }
   &__search-box {
@@ -61,6 +61,8 @@
   @include flex($content: space-between);
   width: 80%;
   &__input {
+    font-family: "avenir";
+    color: $black;
     min-height: 3.6rem;
     width: 100%;
     border-radius: 0.4rem;
@@ -75,7 +77,7 @@
       margin-left: auto;
     }
     &:focus {
-      outline: 2px solid $brainFlix-blue;
+      outline: 2px solid $blue-primary;
     }
     &::placeholder {
       @include text-size(2rem, 1.2rem);
@@ -88,7 +90,7 @@
   background-repeat: no-repeat;
   background-position: 3% 55%;
   border-color: transparent;
-  background-color: $brainFlix-blue;
+  background-color: $blue-primary;
   border-radius: 0.4rem;
   height: 4rem;
   width: 100%;
@@ -106,6 +108,7 @@
     width: 15rem;
   }
   &:hover {
-    background-color: $brainFlix-darkblue;
+    background-color: $blue-secondary;
+    cursor: pointer;
   }
 }

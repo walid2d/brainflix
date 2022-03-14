@@ -1,21 +1,37 @@
-import "./Upload.scss";
+import "./UploadPage.scss";
 import { Redirect } from "react-router-dom";
 import { Component } from "react";
-import VideoThumbnail from "../../../Assets/Images/Upload-video-preview.jpg";
-
-class Upload extends Component {
+import VideoThumbnail from "../../Assets/Images/Upload-video-preview.jpg";
+import axios from "axios";
+class UploadPage extends Component {
   state = {
-    submit: null,
+    submit: false,
   };
 
   onSubmitHandler = (event) => {
     event.preventDefault();
     if (event.target.name.value && event.target.description.value) {
+      axios
+        .post(`${process.env.REACT_APP_API}/videos/post`, {
+          title: event.target.name.value,
+          description: event.target.description.value,
+        })
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
       alert(`Form Successfully Submitted!`);
       this.setState({ submit: true });
     } else {
       alert(`Please Populate The Form!`);
     }
+  };
+
+  cancelHandler = (e) => {
+    e.preventDefault();
+    this.setState({ submit: true });
   };
 
   render() {
@@ -69,15 +85,16 @@ class Upload extends Component {
               className="upload-page__btn btn"
               value="publish"
             />
-            <input
-              type="reset"
+            <button
               className="upload-page__btn-cancel btn"
-              value="cancel"
-            />
+              onClick={this.cancelHandler}
+            >
+              cancel
+            </button>
           </div>
         </form>
       </div>
     );
   }
 }
-export default Upload;
+export default UploadPage;

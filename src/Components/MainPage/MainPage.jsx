@@ -8,37 +8,34 @@ import axios from "axios";
 
 class MainPage extends Component {
   state = {
-    apiKey: `0f25b2ac-5681-4872-aef4-ffa7ca440e6f`,
-    videoData: null,
-    initialState: null,
+    videoData: {},
+    initialState: {},
   };
 
   componentDidMount() {
+    document.title = "Brainflix";
     axios
-      .get(
-        `https://project-2-api.herokuapp.com/videos/?api_key=${this.state.apiKey}`
-      )
+      .get(`${process.env.REACT_APP_API}/videos`)
       .then((response) => {
-        const alldata = response.data;
+        const alldata = response.data.data;
         this.setState({
           videoData: alldata,
         });
-        const initialStateId = response.data[0].id;
+
+        const currentVideoId = response.data.data[0].id;
         const currentId = this.props.match.params.videoId;
         let id = "";
         if (!currentId) {
-          id = initialStateId;
+          id = currentVideoId;
         } else {
           id = currentId;
         }
         axios
-          .get(
-            `https://project-2-api.herokuapp.com/videos/${id}?api_key=${this.state.apiKey}`
-          )
+          .get(`${process.env.REACT_APP_API}/videos/${id}`)
           .then((response) => {
-            const intialData = response.data;
+            const intialData = response.data.data;
             this.setState({
-              initialState: intialData,
+              currentVideo: intialData,
             });
           });
       })
@@ -49,34 +46,31 @@ class MainPage extends Component {
     const currentId = this.props.match.params.videoId;
     if (prevprops.match.params.videoId !== currentId) {
       axios
-        .get(
-          `https://project-2-api.herokuapp.com/videos/${currentId}?api_key=${this.state.apiKey}`
-        )
+        .get(`${process.env.REACT_APP_API}/videos/${currentId}`)
         .then((response) => {
           this.setState({
-            initialState: response.data,
+            currentVideo: response.data.data,
           });
         })
         .catch((err) => console.log(err));
+      window.scrollTo(0, 0);
     }
   }
   render() {
-    if (this.state.videoData && this.state.initialState) {
-      const filteredVideo = this.state.videoData.filter(
-        (ele) => ele.id !== this.state.initialState.id
+    const { videoData, currentVideo } = this.state;
+    if (videoData && currentVideo) {
+      const filteredVideo = videoData.filter(
+        (ele) => ele.id !== currentVideo.id
       );
       return (
         <div className="main">
-          <Hero poster={this.state.initialState.image}></Hero>
+          <Hero image={currentVideo.image}></Hero>
           <div className="main__wrapper">
             <div className="main__comment-box">
-              <Videoinfo allInfo={this.state.initialState} />
-              <Comment comment={this.state.initialState.comments} />
+              <Videoinfo allInfo={currentVideo} />
+              <Comment comment={currentVideo.comments} />
             </div>
-            <Cardlist
-              videoList={filteredVideo}
-              updateVideo={this.clickHandler}
-            />
+            <Cardlist videoList={filteredVideo} />
           </div>
         </div>
       );

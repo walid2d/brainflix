@@ -2,6 +2,7 @@ import "./Header.scss";
 import Logo from "../../Assets/Logo/BrainFlix-logo.svg";
 import Pfp from "../../Assets/Images/Mohan-muruge.jpg";
 import { Link } from "react-router-dom";
+import { changeTitle } from "../../Utils/Utils";
 
 function Header() {
   return (
@@ -19,7 +20,7 @@ function Header() {
             ></input>
           </form>
           <img alt="" src={Pfp} className="pfp"></img>
-          <Link to="/upload" className="btn--link">
+          <Link to="/upload" className="btn--link" onClick={changeTitle}>
             <button className="btn" type="submit">
               Upload
             </button>

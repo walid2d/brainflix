@@ -1,12 +1,11 @@
 import "./VideoInfo.scss";
 import ViewsIcon from "../../Assets/Icons/views.svg";
 import LikeIcon from "../../Assets/Icons/likes.svg";
-
+import { dateConverter } from "../../Utils/Utils";
 function Videoinfo(props) {
   const { title, channel, timestamp, views, likes, description, comments } =
     props.allInfo;
-  const dateConvert = new Date(Number(timestamp));
-  const newDate = dateConvert.toLocaleDateString();
+  const newDate = dateConverter(timestamp);
   return (
     <section className="videoinfo">
       <h1 className="videoinfo__title">{title}</h1>
